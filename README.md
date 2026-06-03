@@ -84,7 +84,7 @@ npm run dev
 cd frontend
 npm run dev
 ```
-*Vite will boot the client server on [http://localhost:3000](http://localhost:3000).*
+*Vite will boot the client server on [http://localhost:3000](http://localhost:3000) (Local) or [https://food-delivery-app-ecru-nine.vercel.app](https://food-delivery-app-ecru-nine.vercel.app) (Live).*
 
 ---
 
