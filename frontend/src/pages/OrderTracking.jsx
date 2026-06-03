@@ -37,7 +37,7 @@ const OrderTracking = () => {
 
   useEffect(() => {
     if (!id) return;
-    const socketUrl = import.meta.env.VITE_BACKEND_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000' : 'https://food-delivery-app-backend.onrender.com');
+    const socketUrl = import.meta.env.VITE_BACKEND_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000' : window.location.origin);
     const socket = io(socketUrl);
 
     console.log(`🔌 OrderTracking connecting to socket: ${socketUrl}`);

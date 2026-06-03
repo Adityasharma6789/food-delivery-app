@@ -209,8 +209,14 @@ const autoSeed = async () => {
 
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, async () => {
-  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-  await connectDB();
-  await autoSeed();
-});
+if (process.env.VERCEL) {
+  connectDB().then(() => autoSeed());
+} else {
+  server.listen(PORT, async () => {
+    console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+    await connectDB();
+    await autoSeed();
+  });
+}
+
+export default app;

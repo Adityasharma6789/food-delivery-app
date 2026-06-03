@@ -7,14 +7,24 @@ const __dirname = path.dirname(__filename);
 
 const DB_DIR = path.join(__dirname, '..', '..', 'database');
 
+const isVercel = !!process.env.VERCEL;
+
 // Ensure DB directory exists
-if (!fs.existsSync(DB_DIR)) {
+if (!isVercel && !fs.existsSync(DB_DIR)) {
   fs.mkdirSync(DB_DIR, { recursive: true });
+}
+
+// Global in-memory storage for serverless environments
+if (isVercel && !global._inMemoryDb) {
+  global._inMemoryDb = {};
 }
 
 const getFilePath = (collection) => path.join(DB_DIR, `${collection}.json`);
 
 const readData = (collection) => {
+  if (isVercel) {
+    return global._inMemoryDb[collection] || [];
+  }
   const filePath = getFilePath(collection);
   if (!fs.existsSync(filePath)) {
     fs.writeFileSync(filePath, JSON.stringify([], null, 2));
@@ -30,6 +40,10 @@ const readData = (collection) => {
 };
 
 const writeData = (collection, data) => {
+  if (isVercel) {
+    global._inMemoryDb[collection] = data;
+    return true;
+  }
   const filePath = getFilePath(collection);
   try {
     fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
