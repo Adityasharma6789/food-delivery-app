@@ -117,16 +117,6 @@ export const seedFoods = [
     isVeg: true
   },
   {
-    name: "Classic New York Cheesecake",
-    description: "Velvety smooth cream cheese cake on a golden graham cracker crust, topped with fresh strawberry compote and whipped cream.",
-    price: 199.00,
-    image: "https://images.unsplash.com/photo-1524351199679-46cddf530c04?auto=format&fit=crop&q=80&w=800",
-    category: "Desserts",
-    restaurant: "Sweet Delights",
-    rating: 4.7,
-    isVeg: true
-  },
-  {
     name: "Matcha Tiramisu",
     description: "Decadent layers of matcha-soaked ladyfingers, whipped mascarpone cream, and a dusting of ceremonial grade green tea powder.",
     price: 229.00,
