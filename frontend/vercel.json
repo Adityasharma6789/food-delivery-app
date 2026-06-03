@@ -1,0 +1,21 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://food-delivery-app-backend.onrender.com/api/:path*"
+    },
+    {
+      "source": "/socket.io/:path*",
+      "destination": "https://food-delivery-app-backend.onrender.com/socket.io/:path*"
+    },
+    {
+      "source": "/((?!api|socket.io).*\\.[a-zA-Z0-9]+)$",
+      "destination": "/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

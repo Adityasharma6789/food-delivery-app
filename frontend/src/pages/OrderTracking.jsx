@@ -35,10 +35,9 @@ const OrderTracking = () => {
     fetchOrderDetails();
   }, [id, dispatch]);
 
-  // Establish WebSocket connection to backend order room for status streaming
   useEffect(() => {
     if (!id) return;
-    const socketUrl = window.location.hostname === 'localhost' ? 'http://localhost:5000' : window.location.origin;
+    const socketUrl = import.meta.env.VITE_BACKEND_URL || (window.location.hostname === 'localhost' ? 'http://localhost:5000' : 'https://food-delivery-app-backend.onrender.com');
     const socket = io(socketUrl);
 
     console.log(`🔌 OrderTracking connecting to socket: ${socketUrl}`);
