@@ -1,5 +1,7 @@
 # SwiftBite | Premium Food Delivery Web Application
 
+🚀 **Live Web App:** [https://food-delivery-app-ecru-nine.vercel.app](https://food-delivery-app-ecru-nine.vercel.app)
+
 SwiftBite is a state-of-the-art, high-end food delivery web application built with a React + Redux frontend and a Node.js + Express backend. 
 
 It features dynamic dietary sorting (Veg/Non-Veg), full text search, item quantity adjustments, persistent cart states, a secure simulated checkout process, custom coupon codes, an active order status progress tracker with a built-in testing simulator, dark/light theme switching, and an administrative control panel.
